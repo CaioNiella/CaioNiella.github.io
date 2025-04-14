@@ -1,1 +1,164 @@
-Hello World
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caio | Desenvolvedor Front-End</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --roxo: #7f5af0;
+      --preto: #0f0f0f;
+      --cinza: #1f1f1f;
+      --branco: #eaeaea;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--preto);
+      color: var(--branco);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--cinza);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--roxo);
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: var(--branco);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--roxo);
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      color: var(--roxo);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #cfcfcf;
+    }
+
+    .projetos {
+      padding: 3rem 2rem;
+    }
+
+    .projetos h3 {
+      color: var(--roxo);
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .projetos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .projeto {
+      background: var(--cinza);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(127, 90, 240, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .projeto:hover {
+      transform: translateY(-5px);
+    }
+
+    .projeto h4 {
+      color: var(--roxo);
+      margin-bottom: 0.5rem;
+    }
+
+    .contato {
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid #333;
+    }
+
+    .contato a {
+      color: var(--roxo);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Caio.dev</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="sobre">
+    <h2>Prazer, Caio 👋</h2>
+    <p>Sou um desenvolvedor front-end apaixonado por criar experiências digitais limpas, intuitivas e funcionais. Minimalismo, performance e criatividade são minhas bases. Busco crescer constantemente e colaborar com projetos que façam sentido.</p>
+  </section>
+
+  <section class="projetos" id="projetos">
+    <h3>Projetos em Destaque</h3>
+    <div class="projetos-container">
+      <div class="projeto">
+        <h4>Projeto 1</h4>
+        <p>Descrição breve do projeto. Você pode destacar desafios, tecnologias usadas ou resultados alcançados.</p>
+      </div>
+      <div class="projeto">
+        <h4>Projeto 2</h4>
+        <p>Outro projeto interessante. Deixe claro seu papel e o impacto do que você construiu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contato" id="contato">
+    <p>Conecte-se comigo:</p>
+    <a href="https://github.com/seuusuario" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/seulinkedin" target="_blank">LinkedIn</a>
+    <a href="mailto:seuemail@email.com">E-mail</a>
+  </section>
+
+</body>
+</html>
