@@ -78,7 +78,6 @@
             margin-left: 220px;
             width: calc(100% - 220px);
             overflow-y: auto;
-            scroll-snap-type: y mandatory;
             min-height: 100vh;
         }
 
@@ -88,7 +87,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            scroll-snap-align: start;
         }
 
         #sobre h2,
@@ -451,6 +449,12 @@
         .scroll-to-top-btn:focus {
             outline: none;
         }
+
+        #footer-section {
+            background-color: var(--cinza);
+            padding: 2rem;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -474,48 +478,57 @@
     </aside>
     <main>
         <section id="intro">
-            <h2>Hi, I’m Caio 👋</h2>
-            <h1 style="margin-top: 1rem;">Software Engineer</h1>
-            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+            <h2>Hey there 👋 I'm Caio</h2>
+            <h1 style="margin-top: 1rem;">Building modern digital experiences.</h1>
+            <p style="margin-top: 1rem; max-width: 600px; line-height: 1.6; color: #ccc;">
+                I'm a software engineer who loves transforming ideas into performant and user-focused web applications.
+                Whether it's front-end magic or back-end logic, I thrive on solving challenges creatively.
+            </p>
+            <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem;">
                 <a href="https://wa.me/5571984573443" target="_blank"
                     style="background: var(--roxo); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;">
-                    Say Hello
+                    Let's Talk
                 </a>
                 <a href="#projetos"
                     style="border: 2px solid var(--roxo); color: var(--roxo); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;">
-                    See My Work
+                    View Projects
                 </a>
                 <a href="curriculo-caio.pdf" download
-                    style="background: transparent; border: 2px solid var(--roxo); color: var(--roxo); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;">
+                    style="border: 2px solid var(--roxo); color: var(--roxo); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;">
                     Download CV
                 </a>
             </div>
-
         </section>
+
         <section id="sobre">
-            <h2>About me</h2>
+            <h2>About Me</h2>
             <div class="about-topic">
                 <p>
-                    I’m a full stack developer passionate about coding and solving problems in creative and intuitive
-                    ways.
-                    I have experience with React.js, Node.js, and data management, creating high-performance web
-                    applications. I’m also passionate about surfing, which enhances my ability to focus and strategize.
+                    I'm a full stack developer from Salvador, Brazil, passionate about building web experiences that
+                    balance clean design, efficient code, and seamless UX. I’m always up for solving tough problems with
+                    elegant logic and solid architecture.
+                </p>
+            </div>
+            <div class="about-topic">
+                <p>
+                    I currently work with technologies like <strong>React.js</strong>, <strong>Node.js</strong>, and
+                    <strong>SQL</strong>, but I’m always exploring and expanding my stack.
+                    On the side, I'm pursuing a degree in <strong>Software Engineering</strong> and aiming to work with
+                    <strong>cybercrime investigation</strong> in the future.
                 </p>
             </div>
             <div class="about-topic">
                 <h3>English Level</h3>
-                <p>C1 Advanced English Level</p>
+                <p>B2 - Upper Intermediate</p>
             </div>
             <div class="about-topic">
                 <p>
-                    Currently pursuing a degree in Software Engineering at the Universidade Católica de Salvador, where
-                    I am
-                    enhancing my skills in software development, algorithms, and system design. I am excited about
-                    building
-                    cutting-edge solutions for the future.
+                    Outside of code, I love catching waves 🏄 – surfing helps me stay focused, calm under pressure, and
+                    constantly in sync with rhythm and flow. I bring that same energy into every project I touch.
                 </p>
             </div>
         </section>
+
 
 
         <section id="projetos">
@@ -533,7 +546,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="projeto">
                     <div class="projeto-img-container">
                         <img src="outroProjeto.png" alt="Under development.">
@@ -548,7 +561,6 @@
                 </div>
             </div>
         </section>
-        
 
         <section id="skills">
             <h2>Skills</h2>
@@ -603,27 +615,31 @@
             </div>
         </section>
     </main>
-    <button id="scrollToTopBtn" class="scroll-to-top-btn">
-        <i class="fas fa-arrow-up"></i>
+    <footer style="text-align: center; padding: 1rem; font-size: 0.9rem; background-color: var(--cinza);">
+        © 2025 Caio Niella. All rights reserved.
+    </footer>
+    <button class="scroll-to-top-btn" id="scrollToTopBtn">
+        <i class="fas fa-chevron-up"></i>
     </button>
     <script>
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+        const main = document.querySelector("main");
 
-        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-        window.onscroll = () => {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                scrollToTopBtn.style.display = "flex";
+        main.addEventListener("scroll", () => {
+            if (main.scrollTop > 300) {
+                scrollBtn.style.display = "flex";
             } else {
-                scrollToTopBtn.style.display = "none";
+                scrollBtn.style.display = "none";
             }
-        };
+        });
 
-
-        scrollToTopBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        scrollBtn.addEventListener("click", () => {
+            main.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         });
     </script>
-
 </body>
 
 </html>
