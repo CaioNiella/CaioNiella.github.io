@@ -93,7 +93,6 @@
 
         #sobre h2,
         #skills h2,
-        #projetos h2,
         #contato h2,
         #experiencia h2 {
             font-size: 2.5rem;
@@ -101,9 +100,31 @@
             margin-bottom: 1rem;
         }
 
+        #projetos h2 {
+            font-size: 2.5rem;
+            color: var(--roxo);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        #sobre .about-topic {
+            background-color: var(--cinza);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #sobre h3 {
+            font-size: 1.8rem;
+            color: var(--roxo);
+            margin-bottom: 1rem;
+        }
+
         #sobre p {
             max-width: 600px;
             color: #ccc;
+            line-height: 1.6;
         }
 
         .skills-container {
@@ -115,12 +136,12 @@
 
         .skill {
             background: var(--cinza);
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
+            padding: 1.5rem 3.5rem;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            transition: transform 0.3s;
+            transition: transform 0.5s;
         }
 
         .skill i {
@@ -134,25 +155,97 @@
 
         .projetos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
         .projeto {
-            background: var(--cinza);
-            padding: 1.5rem;
-            border-radius: 12px;
-            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .projeto h1 {
+            color: var(--roxo);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .projeto p {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .projeto-img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 80%;
+            height: 400px;
+            /* Altura fixa para manter o layout */
+        }
+
+        .projeto-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Corta a imagem mantendo a proporção e preenchendo o container */
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .projeto-img-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .projeto-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1c1021;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            padding: 1rem;
+            text-align: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .projeto-img-container:hover .projeto-overlay {
+            opacity: 1;
         }
 
         .projeto:hover {
             transform: translateY(-5px);
         }
 
-        .projeto h4 {
-            color: var(--roxo);
-            margin-bottom: 0.5rem;
+        .btn-projeto {
+            display: inline-block;
+            background-color: #6200ea;
+            /* Cor roxa */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-projeto:hover {
+            background-color: #3700b3;
+            /* Tom de roxo mais escuro */
+        }
+
+        .projeto-overlay i {
+            margin-right: 5px;
         }
 
         .contato-links {
@@ -194,6 +287,32 @@
             margin-left: 1.5rem;
         }
 
+        .experiencia-item ul {
+            list-style: none;
+            /* Remove bullets padrão */
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .experiencia-item li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        .experiencia-item li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #6a0dad;
+            font-weight: bold;
+        }
+
+
         /* RESPONSIVO */
         @media (max-width: 768px) {
             aside {
@@ -213,7 +332,9 @@
             nav {
                 display: flex;
                 gap: 1rem;
+                overflow-x: auto;
             }
+
 
             nav a {
                 margin: 0;
@@ -244,9 +365,7 @@
                 flex-direction: column;
             }
 
-            .projetos-grid {
-                grid-template-columns: 1fr;
-            }
+
 
             .contato-links {
                 display: flex;
@@ -257,21 +376,93 @@
             .contato-links a {
                 margin: 0;
             }
+
+
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #intro h1 {
+            animation: fadeInUp 0.8s ease-in-out;
+        }
+
+
+        #contato {
+            background-color: var(--preto);
+        }
+
+        main {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        section {
+            scroll-snap-align: start;
+        }
+
+        a:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .scroll-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--roxo);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-to-top-btn:hover {
+            background-color: #5e3ac5;
+            /* Cor mais escura para hover */
+        }
+
+        .scroll-to-top-btn i {
+            font-size: 1.5rem;
+        }
+
+        .scroll-to-top-btn:focus {
+            outline: none;
         }
     </style>
-
 </head>
 
 <body>
-
     <aside>
         <div>
             <h1>Caio Niella</h1>
             <nav>
                 <a href="#intro">Intro</a>
                 <a href="#sobre">About me</a>
-                <a href="#skills">Skills</a>
                 <a href="#projetos">Projects</a>
+                <a href="#skills">Skills</a>
                 <a href="#contato">Contacts</a>
             </nav>
         </div>
@@ -281,10 +472,9 @@
             <a href="mailto:seuemail@email.com"><i class="fas fa-envelope"></i></a>
         </div>
     </aside>
-
     <main>
         <section id="intro">
-            <h2>Hello I'm Caio Niella</h2>
+            <h2>Hi, I’m Caio 👋</h2>
             <h1 style="margin-top: 1rem;">Software Engineer</h1>
             <div style="margin-top: 2rem; display: flex; gap: 1rem;">
                 <a href="https://wa.me/5571984573443" target="_blank"
@@ -295,83 +485,144 @@
                     style="border: 2px solid var(--roxo); color: var(--roxo); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;">
                     See My Work
                 </a>
+                <a href="curriculo-caio.pdf" download
+                    style="background: transparent; border: 2px solid var(--roxo); color: var(--roxo); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;">
+                    Download CV
+                </a>
             </div>
-        </section>
 
+        </section>
         <section id="sobre">
             <h2>About me</h2>
-            <p>I’m a full stack developer passionate about coding and solving problems in creative and intuitive ways.
-                I have experience with React.js, Node.js, and data management, creating high-performance web
-                applications. I’m also passionate about surfing, which enhances my ability to focus and strategize.</p>
+            <div class="about-topic">
+                <p>
+                    I’m a full stack developer passionate about coding and solving problems in creative and intuitive
+                    ways.
+                    I have experience with React.js, Node.js, and data management, creating high-performance web
+                    applications. I’m also passionate about surfing, which enhances my ability to focus and strategize.
+                </p>
+            </div>
+            <div class="about-topic">
+                <h3>English Level</h3>
+                <p>C1 Advanced English Level</p>
+            </div>
+            <div class="about-topic">
+                <p>
+                    Currently pursuing a degree in Software Engineering at the Universidade Católica de Salvador, where
+                    I am
+                    enhancing my skills in software development, algorithms, and system design. I am excited about
+                    building
+                    cutting-edge solutions for the future.
+                </p>
+            </div>
         </section>
 
+
         <section id="projetos">
-            <h2>Projetos</h2>
+            <h2>Latest Projects</h2>
             <div class="projetos-grid">
                 <div class="projeto">
-                    <h4>Projeto 1</h4>
-                    <p>Descrição breve do projeto. Destaque desafios, tecnologias usadas e resultados alcançados.</p>
+                    <div class="projeto-img-container">
+                        <img src="telaLoginSinple.png" alt="Interface of the Sinple CRM project for Grupo Plantão">
+                        <div class="projeto-overlay">
+                            <h1>Sinple - CRM for Grupo Plantão</h1>
+                            <p>Internal CRM focused on customer management and sector integration.</p>
+                            <a href="detalhes-projeto1.html" target="_blank" class="btn-projeto">
+                                <i class="fas fa-link"></i> Learn more
+                            </a>
+                        </div>
+                    </div>
                 </div>
+        
                 <div class="projeto">
-                    <h4>Projeto 2</h4>
-                    <p>Outro projeto interessante. Deixe claro seu papel e o impacto do que você construiu.</p>
+                    <div class="projeto-img-container">
+                        <img src="outroProjeto.png" alt="Under development.">
+                        <div class="projeto-overlay">
+                            <h1>Project 2</h1>
+                            <p>Under development.</p>
+                            <a href="" class="btn-projeto">
+                                <i class="fas fa-link"></i> Learn more
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+        
 
         <section id="skills">
             <h2>Skills</h2>
             <div class="skills-container">
-                <div class="skill"><i class="fab fa-html5"></i>HTML5</div>
-                <div class="skill"><i class="fab fa-css3-alt"></i>CSS3</div>
-                <div class="skill"><i class="fab fa-js-square"></i>JavaScript</div>
-                <div class="skill"><i class="fab fa-react"></i>React</div>
                 <div class="skill"><i class="fab fa-java"></i>Java</div>
                 <div class="skill"><i class="fas fa-leaf"></i>Spring Boot</div>
+                <div class="skill"><i class="fas fa-leaf"></i>Spring Cloud</div>
+                <div class="skill"><i class="fab fa-node-js"></i>Node.js</div>
                 <div class="skill"><i class="fas fa-database"></i>SQL</div>
+                <div class="skill"><i class="fas fa-chart-bar"></i>Power BI</div>
+                <div class="skill"><i class="fab fa-html5"></i>HTML5</div>
+                <div class="skill"><i class="fab fa-css3-alt"></i>CSS3</div>
+                <div class="skill"><i class="fab fa-react"></i>React.js</div>
+                <div class="skill"><i class="fab fa-js-square"></i>JavaScript</div>
+                <div class="skill"><i class="fas fa-code"></i>TypeScript</div>
+                <div class="skill"><i class="fab fa-php"></i>PHP</div>
                 <div class="skill"><i class="fab fa-git-alt"></i>Git</div>
+                <div class="skill"><i class="fas fa-project-diagram"></i>Agile Frameworks (Scrum)</div>
             </div>
         </section>
-
         <section id="experiencia">
-            <h2>Experiência Profissional</h2>
-
+            <h2>Professional Experience</h2>
             <div class="experiencia-item">
-                <h3>Grupo Plantão - Telecomunicações</h3>
-                <p><strong>Setembro/2024 - Presente</strong></p>
-                <p><strong>Cargo:</strong> Desenvolvedor Full Stack</p>
+                <h3>Grupo Plantão - Telecommunications</h3>
+                <p><strong>September/2024 - Present</strong></p>
+                <p><strong>Role:</strong> Full Stack Developer</p>
                 <ul>
-                    <li>Desenvolvimento e manutenção do sistema CRM Sinple.</li>
-                    <li>Integração do Front-end (React.js, JavaScript) com o Back-end (Java Spring Boot, SQL).</li>
-                    <li>Otimização de queries SQL para performance.</li>
-                    <li>Melhoria contínua da interface do usuário.</li>
+                    <li>Development and maintenance of the Sinple CRM system.</li>
+                    <li>Integration of Front-end (React.js, JavaScript) with Back-end (Java Spring Boot, SQL).</li>
+                    <li>Optimization of SQL queries for performance.</li>
+                    <li>Continuous improvement of the user interface.</li>
                 </ul>
             </div>
-
             <div class="experiencia-item">
                 <h3>Power Engenharia Eireli</h3>
-                <p><strong>Janeiro/2023 - Julho/2024 (1 ano e 7 meses)</strong></p>
-                <p><strong>Cargo:</strong> Desenvolvedor de Software Full Stack</p>
+                <p><strong>January/2023 - July/2024 (1 year and 7 months)</strong></p>
+                <p><strong>Role:</strong> Full Stack Software Developer</p>
                 <ul>
-                    <li>Desenvolvimento de CRM web para gestão empresarial.</li>
-                    <li>Responsável pela construção do sistema do zero.</li>
-                    <li>Criação de funcionalidades para gerenciamento de clientes, fornecedores, funcionarios, e
-                        controle de estoque.</li>
+                    <li>Development of a web-based CRM for business management.</li>
+                    <li>Responsible for building the system from scratch.</li>
+                    <li>Creation of features for managing clients, suppliers, employees, and inventory control.</li>
                 </ul>
             </div>
-
         </section>
-
         <section id="contato">
-            <h2>Contato</h2>
-            <p>Quer trocar uma ideia ou me chamar pra um projeto?</p>
+            <h2>Contact</h2>
+            <p>Wanna chat or invite me to a project?</p>
             <div class="contato-links">
-                <a href="caioniella@gmail.com">E-mail</a>
+                <a href="mailto:caioniella@gmail.com">E-mail</a>
                 <a href="https://github.com/CaioNiella" target="_blank">GitHub</a>
                 <a href="https://www.linkedin.com/in/antonio-niella/" target="_blank">LinkedIn</a>
             </div>
         </section>
     </main>
+    <button id="scrollToTopBtn" class="scroll-to-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script>
+
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.onscroll = () => {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "flex";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 
 </body>
 

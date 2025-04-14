@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caio Niella | Sinple - CRM Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        :root {
+            --purple: #7f5af0;
+            --black: #0f0f0f;
+            --gray: #1f1f1f;
+            --white: #eaeaea;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(160deg, var(--black) 0%, var(--purple) 100%);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem 2rem;
+            background-color: var(--black);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--purple);
+        }
+
+        header nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 2rem;
+        }
+
+        header nav a:hover {
+            color: var(--purple);
+        }
+
+        .project-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 2rem;
+        }
+
+        .project-container h2 {
+            font-size: 2.5rem;
+            color: var(--purple);
+            margin-bottom: 2rem;
+        }
+
+        .project-img-container {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .project-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-img-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            max-width: 800px;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .project-info p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .btn-project {
+            background-color: var(--purple);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-project:hover {
+            background-color: #5e3ac5;
+        }
+
+        .scroll-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--purple);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-to-top-btn:hover {
+            background-color: #5e3ac5;
+        }
+
+        .scroll-to-top-btn i {
+            font-size: 1.5rem;
+        }
+
+        .scroll-to-top-btn:focus {
+            outline: none;
+        }
+
+        .image-marquee {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        .image-marquee-wrapper {
+            display: flex;
+            animation: scroll-images 40s linear infinite;
+        }
+
+        .image-marquee img {
+            width: 700px;
+            height: 100%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        @keyframes scroll-images {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            header nav a {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .project-img-container {
+                width: 100%;
+                height: auto;
+            }
+
+            .project-info p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Caio Niella</h1>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <div class="project-container">
+        <h2>Sinple - CRM for Grupo Plantão</h2>
+
+        <div class="image-marquee">
+            <div class="image-marquee-wrapper">
+                <img src="telaLoginSinple.png" alt="Sinple CRM Login Screen">
+                <img src="homepageSinple.png" alt="Sinple CRM Login Screen">
+                <img src="botoesNavegationSinple.png" alt="Sinple CRM Login Screen">
+                <img src="notificactions.png" alt="Sinple CRM Login Screen">
+                <img src="movimentacoesSinple.png" alt="Sinple CRM Login Screen">
+                <img src="telaEstoqueSinple.png" alt="Sinple CRM Login Screen">
+                <img src="esteirasOperacional.png" alt="Sinple CRM Login Screen">
+                <!-- Add more images as needed -->
+            </div>
+        </div>
+
+        <div class="project-info">
+            <p>The Sinple project was developed to improve customer management at Grupo Plantão. The application integrates different sectors and optimizes communication processes between teams, providing a clear and efficient view of each customer's data.</p>
+            <p><strong>Technologies used:</strong> React.js, Node.js, PostgreeSql, Java Spring Boot.</p>
+
+            <a href="https://github.com/yourusername/sinple-crm" target="_blank" class="btn-project">
+                <i class="fab fa-github"></i> Access Source Code
+            </a>
+        </div>
+    </div>
+
+    <button class="scroll-to-top-btn" id="scroll-to-top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollToTopBtn.style.display = 'flex';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
