@@ -28,8 +28,8 @@
             background: linear-gradient(160deg, var(--preto) 0%, var(--roxo) 100%);
             color: var(--branco);
             display: flex;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            flex-direction: column;
         }
 
         aside {
@@ -79,7 +79,7 @@
             width: calc(100% - 220px);
             overflow-y: auto;
             scroll-snap-type: y mandatory;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         section {
@@ -94,7 +94,8 @@
         #sobre h2,
         #skills h2,
         #projetos h2,
-        #contato h2 {
+        #contato h2,
+        #experiencia h2 {
             font-size: 2.5rem;
             color: var(--roxo);
             margin-bottom: 1rem;
@@ -179,9 +180,9 @@
             margin-bottom: 1rem;
         }
 
-        .experiencia-item p {
+        .experiencia-item p,
+        .experiencia-item ul li {
             color: #ccc;
-            margin-bottom: 1rem;
         }
 
         .experiencia-item ul {
@@ -189,15 +190,76 @@
             padding-left: 0;
         }
 
-        .experiencia-item ul li {
-            margin-bottom: 0.5rem;
-            color: #ccc;
-        }
-
         .experiencia-item ul ul {
             margin-left: 1.5rem;
         }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            aside {
+                position: relative;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 2rem;
+            }
+
+            aside h1 {
+                margin: 0;
+            }
+
+            nav {
+                display: flex;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .social {
+                flex-direction: row;
+            }
+
+            main {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            #intro h2 {
+                font-size: 1.5rem;
+            }
+
+            #intro h1 {
+                font-size: 2rem;
+            }
+
+            .skills-container {
+                flex-direction: column;
+            }
+
+            .projetos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contato-links {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .contato-links a {
+                margin: 0;
+            }
+        }
     </style>
+
 </head>
 
 <body>
